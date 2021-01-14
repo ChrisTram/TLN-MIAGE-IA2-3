@@ -2,10 +2,15 @@ import numpy as np
 import pandas as pd
 from xml.dom import minidom
 import tensorflow as tf
+import nltk
+from nltk import ne_chunk, pos_tag
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
 
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-
 
 def lemmatizer(word):
     import nltk
