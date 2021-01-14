@@ -1,15 +1,13 @@
 Tocilizumab in Patients Hospitalized with Covid-19 Pneumonia
 
-BACKGROUND
 Coronavirus disease 2019 (Covid-19) pneumonia is often associated with hyperinflammation. Despite the disproportionate incidence of Covid-19 among underserved and racial and ethnic minority populations, the safety and efficacy of the anti–interleukin-6 receptor antibody tocilizumab in patients from these populations who are hospitalized with Covid-19 pneumonia are unclear.
 
-METHODS
 We randomly assigned (in a 2:1 ratio) patients hospitalized with Covid-19 pneumonia who were not receiving mechanical ventilation to receive standard care plus one or two doses of either tocilizumab (8 mg per kilogram of body weight intravenously) or placebo. Site selection was focused on the inclusion of sites enrolling high-risk and minority populations. The primary outcome was mechanical ventilation or death by day 28.
 
-RESULTS
+
 A total of 389 patients underwent randomization, and the modified intention-to-treat population included 249 patients in the tocilizumab group and 128 patients in the placebo group; 56.0% were Hispanic or Latino, 14.9% were Black, 12.7% were American Indian or Alaska Native, 12.7% were non-Hispanic White, and 3.7% were of other or unknown race or ethnic group. The cumulative percentage of patients who had received mechanical ventilation or who had died by day 28 was 12.0% (95% confidence interval [CI], 8.5 to 16.9) in the tocilizumab group and 19.3% (95% CI, 13.3 to 27.4) in the placebo group (hazard ratio for mechanical ventilation or death, 0.56; 95% CI, 0.33 to 0.97; P=0.04 by the log-rank test). Clinical failure as assessed in a time-to-event analysis favored tocilizumab over placebo (hazard ratio, 0.55; 95% CI, 0.33 to 0.93). Death from any cause by day 28 occurred in 10.4% of the patients in the tocilizumab group and 8.6% of those in the placebo group (weighted difference, 2.0 percentage points; 95% CI, –﻿5.2 to 7.8). In the safety population, serious adverse events occurred in 38 of 250 patients (15.2%) in the tocilizumab group and 25 of 127 patients (19.7%) in the placebo group.
 
-CONCLUSIONS
+
 In hospitalized patients with Covid-19 pneumonia who were not receiving mechanical ventilation, tocilizumab reduced the likelihood of progression to the composite outcome of mechanical ventilation or death, but it did not improve survival. No new safety signals were identified. (Funded by Genentech; EMPACTA ClinicalTrials.gov number, NCT04372186. opens in new tab.)
 
 Coronavirus disease 2019 (Covid-19) emerged in China in December 2019 and rapidly led to a public health emergency.1,2 In severe and critical cases of Covid-19, which occur in 14% and 5% of patients, respectively, Covid-19–associated pneumonia can lead to acute respiratory distress syndrome.3,4 Respiratory failure is among the leading causes of death in patients with Covid-19.5,6
@@ -22,7 +20,7 @@ Covid-19 may be associated with a dysregulated immune response and hyperinflamma
 
 In EMPACTA (Evaluating Minority Patients with Actemra), a global, phase 3 clinical trial, we investigated the safety and efficacy of tocilizumab in hospitalized patients with Covid-19 pneumonia who were not receiving mechanical ventilation. The enrollment of patients from high-risk and racial and ethnic minority populations was emphasized.
 
-Methods
+
 TRIAL DESIGN AND OVERSIGHT
 We conducted this randomized, double-blind, placebo-controlled, phase 3 trial to evaluate the safety and efficacy of tocilizumab in hospitalized patients with Covid-19 pneumonia who were not receiving mechanical ventilation. Global trial sites enrolling high-risk and minority populations were included to enhance the understanding of the clinical profile of tocilizumab in these patients and to allow access to underserved and minority populations, which are not commonly represented in clinical trials. Details on site selection are provided in the Methods section of the Supplementary Appendix, available with the full text of this article at NEJM.org.
 
@@ -52,8 +50,6 @@ Time-to-event secondary outcomes were compared between the two groups with the u
 
 Safety was assessed in all the patients who received either tocilizumab or placebo; patients were grouped according to the actual agent received. An interim safety review was performed by an internal monitoring committee.
 
-Results
-PATIENTS
 
 Enrollment, Randomization, and Follow-up.
 Overall, 389 patients from six countries underwent randomization; 1 patient underwent randomization in error, and 377 patients received either tocilizumab or placebo (Figure 1 and Table S2). In the modified intention-to-treat population, 249 patients were assigned to receive tocilizumab plus standard care and 128 were assigned to receive placebo plus standard care; the safety population included 250 and 127 patients, respectively, because 1 patient who was assigned to receive placebo received tocilizumab and 11 patients did not receive tocilizumab or placebo. Information on exposure to tocilizumab or placebo is provided in Table S3. Overall, 225 patients (90.4%) completed the trial in the tocilizumab group and 115 (89.8%) completed the trial in the placebo group; excluding those who died, no patients in the tocilizumab group and 2 patients in the placebo group (1.6%) discontinued the trial before day 28. The median follow-up time was 60 days in both groups.
@@ -61,21 +57,16 @@ Overall, 389 patients from six countries underwent randomization; 1 patient unde
 Characteristics of the Patients at Baseline in the Modified Intention-to-Treat Population.
 The baseline demographic and disease characteristics were generally balanced in the two groups (Table 1 and Table S4). In the tocilizumab and placebo groups, 60.2% and 57.0% of the patients were men, respectively, and the mean (±SD) age was 56.0±14.3 years and 55.6±14.9 years, respectively. In the tocilizumab and placebo groups, 143 patients (57.4%) and 68 patients (53.1%), respectively, were Hispanic or Latino, 35 (14.1%) and 21 (16.4%) were Black, and 33 (13.3%) and 15 (11.7%) were American Indian or Alaska Native. In the 7 days before the trial or during the trial, 200 patients in the tocilizumab group (80.3%) and 112 patients in the placebo group (87.5%) received systemic glucocorticoids and 196 (78.7%) and 101 (78.9%), respectively, received antiviral treatment (Table S5); 55.4% and 67.2% of the patients received dexamethasone, and 52.6% and 58.6% received remdesivir (Table S6).
 
-PRIMARY EFFICACY OUTCOME
 
 Primary and Key Secondary Efficacy Outcomes by Day 28 in the Modified Intention-to-Treat Population.
 
 Time to Mechanical Ventilation or Death by Day 28 in the Modified Intention-to-Treat Population.
 The cumulative percentage of patients who had received mechanical ventilation or who had died by day 28 was significantly lower in the tocilizumab group (12.0%; 95% confidence interval [CI], 8.5 to 16.9) than in the placebo group (19.3%; 95% CI, 13.3 to 27.4) (hazard ratio, 0.56; 95% CI, 0.33 to 0.97; P=0.04 by the log-rank test). Results are shown in Table 2 and Figure 2.
 
-SECONDARY OUTCOMES
 The median time to hospital discharge or readiness for discharge over the 28-day period was 6.0 days (95% CI, 6.0 to 7.0) in the tocilizumab group and 7.5 days (95% CI, 7.0 to 9.0) in the placebo group (hazard ratio, 1.16; 95% CI, 0.91 to 1.48) (Table 2 and Fig. S1). The results were similar when death was treated as a competing risk (hazard ratio, 1.14; 95% CI, 0.92 to 1.42) (Table S7 and Fig. S2). The median time to improvement in clinical status as assessed with the seven-category ordinal scale over the 28-day period was 6.0 days (95% CI, 6.0 to 7.0) with tocilizumab and 7.0 days (95% CI, 6.0 to 9.0) with placebo (hazard ratio, 1.15; 95% CI, 0.90 to 1.48) (Table 2 and Fig. S3). The results were similar when death was treated as a competing risk (hazard ratio, 1.14; 95% CI, 0.92 to 1.41) (Table S8 and Fig. S4). The median time to clinical failure over the 28-day period could not be estimated in either group (hazard ratio, 0.55; 95% CI, 0.33 to 0.93) (Table 2 and Fig. S5). Mortality by day 28 was 10.4% (95% CI, 7.2 to 14.9) in the tocilizumab group and 8.6% (95% CI, 4.9 to 14.7) in the placebo group (weighted difference, 2.0 percentage points; 95% CI, –5.2 to 7.8) (Table 2).
 
-EXPLORATORY OUTCOMES
 The results of the primary efficacy analysis according to race or ethnic group were consistent with the results in the modified intention-to-treat population. The results of additional subgroup analyses are provided in Figure S6.
 
-SAFETY
-Table 3.
 
 Adverse Events through Day 60 in the Safety Population.
 The data cutoff date was September 30, 2020. Overall, adverse events through day 60 were reported in 50.8% of 250 patients in the tocilizumab group and 52.8% of 127 patients in the placebo group, and serious adverse events were reported in 15.2% and 19.7%, respectively (Table 3 and Table S9). Death occurred in 29 patients (11.6%) in the tocilizumab group and 15 patients (11.8%) in the placebo group (Table 3 and Table S10); no systematic pattern in deaths that occurred before as compared with after mechanical ventilation was noted (Fig S7). Through day 60, a total of 16 serious infections were observed in 13 patients who received tocilizumab (5.2%) and 11 serious infections were observed in 9 patients who received placebo (7.1%). Through day 28, a total of 8 of 250 patients (3.2%) in the tocilizumab group and 6 of 127 patients (4.7%) in the placebo group had progression of illness to category 6 on the seven-category ordinal scale.

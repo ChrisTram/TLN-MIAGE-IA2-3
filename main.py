@@ -38,8 +38,12 @@ if __name__ == "__main__":
     # Sentences to bag of words
     tokenizer = Tokenizer(num_words=5000)
     tokenizer.fit_on_texts(corpus)
-    vocab_size = len(tokenizer.word_index) + 1
 
+
+    #vocab_size = len(tokenizer.word_index) + 1
 
     encoded_docs = tokenizer.texts_to_sequences(corpus)
+    print(encoded_docs)
+
     text_padded_sequence = pad_sequences(encoded_docs, maxlen=100)
+    print(text_padded_sequence)
