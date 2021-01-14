@@ -6,6 +6,29 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+
+def lemmatizer(word):
+    import nltk
+    lemma = nltk.wordnet.WordNetLemmatizer()
+    return lemma.lemmatize(word)
+
+
+def remove_stop_word(tokenize_text):
+    stop_words = stopwords.words('english')
+    stop_words.append('?')
+    filtered_sentence = [w for w in tokenize_text if not w in stop_words]
+    return filtered_sentence
+
+
+def remove_already_used_word(tokenise_text_without_sw, words):
+    filtered_text = []
+    for w in tokenise_text_without_sw:
+        if w.lower() not in words and w not in words:
+            filtered_text.append(w)
+
+    return filtered_text
+
+
 def getCorpus() : 
     with open('./corpus/c1.txt', encoding="utf8") as file:
         c1 = file.read().replace('\n', '')
@@ -39,7 +62,6 @@ if __name__ == "__main__":
     tokenizer = Tokenizer(num_words=5000)
     tokenizer.fit_on_texts(corpus)
 
-
     #vocab_size = len(tokenizer.word_index) + 1
 
     encoded_docs = tokenizer.texts_to_sequences(corpus)
@@ -47,3 +69,6 @@ if __name__ == "__main__":
 
     text_padded_sequence = pad_sequences(encoded_docs, maxlen=100)
     print(text_padded_sequence)
+
+    # Tokenize sentence without stop word
+    tokenize_text_sw = remove_stop_word(tokenizer)
