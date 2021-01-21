@@ -7,13 +7,21 @@ from nltk import ne_chunk, pos_tag
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-
+import itertools
+from nltk.stem import PorterStemmer
 
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+
+def preprocessing(tokenize_text):
+    pos_tag_text = pos_tag(tokenize_text)
+    chunk_text = ne_chunk(pos_tag_text, binary=True)
+
+    return chunk_text
+
+
 def lemmatizer(word):
-    import nltk
     lemma = nltk.wordnet.WordNetLemmatizer()
     return lemma.lemmatize(word)
 
@@ -58,22 +66,79 @@ def getCorpus() :
 
     return [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10]
 
+def getCorpusConcat() :
+    with open('./corpus/c1.txt', encoding="utf8") as file:
+        c1 = file.read().replace('\n', '')
+    with open('./corpus/c2.txt', encoding="utf8") as file:
+        c2 = file.read().replace('\n', '')
+    with open('./corpus/c3.txt', encoding="utf8") as file:
+        c3 = file.read().replace('\n', '')
+    with open('./corpus/c4.txt', encoding="utf8") as file:
+        c4 = file.read().replace('\n', '')
+    with open('./corpus/c5.txt', encoding="utf8") as file:
+        c5 = file.read().replace('\n', '')
+    with open('./corpus/c6.txt', encoding="utf8") as file:
+        c6 = file.read().replace('\n', '')
+    with open('./corpus/c7.txt', encoding="utf8") as file:
+        c7 = file.read().replace('\n', '')
+    with open('./corpus/c8.txt', encoding="utf8") as file:
+        c8 = file.read().replace('\n', '')
+    with open('./corpus/c9.txt', encoding="utf8") as file:
+        c9 = file.read().replace('\n', '')
+    with open('./corpus/c10.txt', encoding="utf8") as file:
+        c10 = file.read().replace('\n', '')
+
+    return c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10
+
+
+# Return a bag of all stem words in all corpus
+def getStemWords():
+    words = getCorpusConcat()  
+    words_tokenized = []
+
+    words_tokenized = word_tokenize(words)
+
+    lems = []
+
+    for w in words_tokenized:
+        lems.append(lemmatizer(w))  
+
+    porter = PorterStemmer()
+
+    words_stem = []
+
+    for w in lems:
+        words_stem.append(porter.stem(w))
+
+    return words_stem
+
+# Return a bag of stem words for each corpus. Return 10 lists
+def getStemWordsByCorpus():
+    corpus = getCorpus()  
+    wordsLists = []
+ 
+    for c in corpus:
+        wordsLists.append(word_tokenize(c))
+
+    lemsLists = []
+    i = 0
+    for words in wordsLists:
+        lemsLists.append([])
+        for w in words: 
+            lemsLists[i].append(lemmatizer(w))
+        i+=1
+
+    porter = PorterStemmer()
+    j = 0
+    words_stems = []
+    for lems in lemsLists:
+        words_stems.append([])
+        for w in lems:
+            words_stems[j].append(porter.stem(w))
+        j+=1
+
+    return words_stems
+
 if __name__ == "__main__":
 
-
-    corpus = getCorpus()
-
-    # Sentences to bag of words
-    tokenizer = Tokenizer(num_words=5000)
-    tokenizer.fit_on_texts(corpus)
-
-    #vocab_size = len(tokenizer.word_index) + 1
-
-    encoded_docs = tokenizer.texts_to_sequences(corpus)
-    print(encoded_docs)
-
-    text_padded_sequence = pad_sequences(encoded_docs, maxlen=100)
-    print(text_padded_sequence)
-
-    # Tokenize sentence without stop word
-    tokenize_text_sw = remove_stop_word(tokenizer)
+    print(getStemWords())
