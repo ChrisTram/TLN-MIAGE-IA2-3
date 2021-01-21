@@ -97,6 +97,8 @@ def getStemWords():
     words_tokenized = []
 
     words_tokenized = word_tokenize(words)
+    # remove all tokens that are not alphabetic
+    words_tokenized = [word for word in words_tokenized if word.isalpha()]
 
     lems = []
 
@@ -119,10 +121,15 @@ def getStemWordsByCorpus():
  
     for c in corpus:
         wordsLists.append(word_tokenize(c))
+    
+    words_tokenized = []
+    for words in wordsLists:
+        # remove all tokens that are not alphabetic
+        words_tokenized.append([word for word in words if word.isalpha()])
 
     lemsLists = []
     i = 0
-    for words in wordsLists:
+    for words in words_tokenized:
         lemsLists.append([])
         for w in words: 
             lemsLists[i].append(lemmatizer(w))
@@ -141,4 +148,4 @@ def getStemWordsByCorpus():
 
 if __name__ == "__main__":
 
-    print(getStemWords())
+    print(getStemWordsByCorpus())
