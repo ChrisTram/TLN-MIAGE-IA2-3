@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from xml.dom import minidom
-import tensorflow as tf
 import nltk
 from nltk import ne_chunk, pos_tag
 from nltk.tokenize import word_tokenize
@@ -9,10 +8,6 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import itertools
 from nltk.stem import PorterStemmer
-
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-
 
 def preprocessing(tokenize_text):
     pos_tag_text = pos_tag(tokenize_text)
@@ -151,9 +146,46 @@ def getStemWordsByCorpus():
     
     return words_withoutDup
 
+def getIncidenceMatrix():
+
+    dictionnary = getStemWords()
+    corpusList = getStemWordsByCorpus()
+
+    matrix = []
+    i = 0
+    for corpus in corpusList:
+        matrix.append([])
+        for word in dictionnary:
+            if(word in corpus):
+                matrix[i].append(1)
+            else:
+                matrix[i].append(0)
+        i+=1
+    return matrix
+
+
+def getReversedIndex():
+    dictionnary = getStemWords()
+    corpusList = getStemWordsByCorpus()
+
+    index = []
+    i = 0
+
+    for word in dictionnary:
+        index.append([])
+        index[i].append(word)
+        j=0
+        for corpus in corpusList:
+            if(word in corpus):
+                index[i].append(j)
+            j+=1
+        i+=1
+    return index
+
+
 if __name__ == "__main__":
 
-    print(getStemWordsByCorpus()[0])
+    print(getReversedIndex()[500])
 
     # To remove duplicate, do : 
     # list = list( dict.fromkeys(mylist) )
