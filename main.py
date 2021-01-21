@@ -112,7 +112,8 @@ def getStemWords():
     for w in lems:
         words_stem.append(porter.stem(w))
 
-    return words_stem
+    # Return without duplicates
+    return list( dict.fromkeys(words_stem) )
 
 # Return a bag of stem words for each corpus. Return 10 lists
 def getStemWordsByCorpus():
@@ -144,8 +145,15 @@ def getStemWordsByCorpus():
             words_stems[j].append(porter.stem(w))
         j+=1
 
-    return words_stems
+    words_withoutDup = []
+    for words in words_stems:
+        words_withoutDup.append(list( dict.fromkeys(words) ))
+    
+    return words_withoutDup
 
 if __name__ == "__main__":
 
-    print(getStemWordsByCorpus())
+    print(getStemWordsByCorpus()[0])
+
+    # To remove duplicate, do : 
+    # list = list( dict.fromkeys(mylist) )
