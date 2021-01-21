@@ -182,10 +182,33 @@ def getReversedIndex():
         i+=1
     return index
 
+def booleanRequest(request):
+
+    # Process
+    words_token = word_tokenize(request)
+    print(words_token)
+    lems = []
+    for w in words_token:
+        lems.append(lemmatizer(w))
+    
+    porter = PorterStemmer()
+
+    words = []
+    for w in lems:
+        words.append(porter.stem(w))
+
+    print(words)
+    
+    print(getStemWords().index(words[0]))
 
 if __name__ == "__main__":
 
-    print(getReversedIndex()[500])
+    booleanRequest("developing AND severe AND pneumonia")
+
+    # print(getStemWords().index("develop"))
+# 
+    # print(getReversedIndex()[300])
+    # print(getReversedIndex()[301])
 
     # To remove duplicate, do : 
     # list = list( dict.fromkeys(mylist) )
