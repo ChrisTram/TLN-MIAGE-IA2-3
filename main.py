@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 import numpy as np
 import pandas as pd
 from xml.dom import minidom
@@ -179,7 +181,7 @@ def getReversedIndex():
         index[i].append(word)
         j = 0
         for corpus in corpusList:
-            if (word in corpus):
+            if word in corpus:
                 index[i].append(j)
             j += 1
         i += 1
@@ -197,49 +199,79 @@ def booleanRequest(request):
     for w in lems:
         words.append(porter.stem(w).lower())
 
-    print(words)
-
     dictionnary = getStemWords()
     index = getReversedIndex()
 
     request = []
     # We replace the words by the corpus index it is in
-    for word in words:
-        if word != 'and' and word != 'or' and word != 'not' and word != '(' and word != ')':
-            i = dictionnary.index(word)
-            request.append(index[i][1:-1])
+    for i in range(len(words)):
+        if words[i] != 'and' and words[i] != 'or' and words[i] != 'not' and words[i] != '(' and words[i] != ')':
+            w = dictionnary.index(words[i])
+            request.append(index[w][1:])
+
+            if len(words) > i + 1:
+                if words[i + 1] != 'and' and words[i + 1] != 'or' \
+                        and words[i + 1] != 'not' and words[i + 1] != '(' and words[i + 1] != ')':
+                    request.append('and')
+
         else:
-            request.append(word)
+            request.append(words[i])
+
+    print('')
+    print(words)
     print(request)
 
-    request = treat_request(request)
-    print(request)
+    result = treat_request(request)
+
+    print(result)
 
 
 def treat_request(request):
+    i = 0
+    # Remove the parenthesis
+    while len(request) > 1 and i < len(request):
+        if request[i] == '(':
+            request.pop(i)
+            tmp = treat_request(request[i:])
+            del request[i:]
+
+            for j in range(len(tmp)):
+                request.insert(i + j, tmp[j])
+            i = 0
+        elif request[i] == ')':
+            request.pop(i)
+            tmp = treat_sub_request(request[0:i])
+            del request[0:i]
+            request.insert(0, tmp)
+            return request
+        else:
+            i += 1
+
+    # Treat the request left without parenthesis
+    print(request)
+    request = treat_sub_request(request)
+
+    return list(OrderedDict.fromkeys(request))
+
+
+def treat_sub_request(request):
     while len(request) > 1:
         for i in range(len(request)):
-            if request[i] == '(':
-                request.pop(i)
-                break
-            elif request[i] == ')':
-                request.pop(i)
-                break
-            elif i == 2 and request[i] != 'not':
-                tmp = basic_operation(request[i - 3], request[i - 2], request[i - 1])
+            if i == 2 and request[i] != 'not':
+                tmp = basic_operation(request[i - 2], request[i], request[i - 1])
                 request.insert(i + 1, tmp)
                 request.pop(i)
                 request.pop(i - 1)
                 request.pop(i - 2)
                 break
             elif request[i] == 'not':
-                tmp = treat_request(request[i+1:])
-                tmp = basic_operation(tmp, None, 'not')
-                del request[i:]
+                tmp = basic_operation(request[i + 1], None, 'not')
+                request.pop(i + 1)
+                request.pop(i)
                 request.insert(i, tmp)
                 break
 
-    return request
+    return request[0]
 
 
 def basic_operation(corpus_1, corpus_2, operator, corp_max=10):
@@ -255,8 +287,8 @@ def basic_operation(corpus_1, corpus_2, operator, corp_max=10):
             tmp.append(c)
     elif operator == 'not':
         tmp = [i for i in range(corp_max)]
-        if corpus_1[0] is not None:
-            for c in corpus_1[0]:
+        if corpus_1 is not None:
+            for c in corpus_1:
                 if c in tmp:
                     tmp.remove(c)
 
@@ -264,15 +296,11 @@ def basic_operation(corpus_1, corpus_2, operator, corp_max=10):
 
 
 if __name__ == "__main__":
-    booleanRequest("desease AND severe AND pneumonia")
-
+    booleanRequest("disease AND severe AND pneumonia")
     booleanRequest("antibody AND plasma AND (cells OR receptors)")
-
     booleanRequest("antimalarial drugs OR antiviral agents OR immunomodulators")
-
     booleanRequest("NOT plasma AND risk of infection AND restrictions")
-
-    booleanRequest(". (older adults AND antibodies) AND NOT (genomes OR variant)")
+    booleanRequest("(older adults AND antibodies) AND NOT (genomes OR variant)")
 
     # print(getStemWords().index("develop"))
     # print(getReversedIndex()[300])
