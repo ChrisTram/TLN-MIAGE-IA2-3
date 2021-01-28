@@ -207,7 +207,7 @@ def booleanRequest(request):
 
 if __name__ == "__main__":
 
-    booleanRequest("developing AND severe AND pneumonia")
+    booleanRequest("Developing AND severe AND pneumonia")
 
     # print(getStemWords().index("develop"))
     # print(getReversedIndex()[300])
