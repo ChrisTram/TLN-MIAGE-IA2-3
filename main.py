@@ -264,16 +264,16 @@ def basic_operation(corpus_1, corpus_2, operator, corp_max=10):
 
 
 if __name__ == "__main__":
+
     booleanRequest("desease AND severe AND pneumonia")
 
     booleanRequest("antibody AND plasma AND (cells OR receptors)")
 
-    booleanRequest("antimalarial drugs OR antiviral agents OR immunomodulators")
+    booleanRequest("antimalarial AND drugs OR antiviral agents OR immunomodulators")
 
     booleanRequest("NOT plasma AND risk of infection AND restrictions")
 
     booleanRequest(". (older adults AND antibodies) AND NOT (genomes OR variant)")
 
-    # print(getStemWords().index("develop"))
     # print(getReversedIndex()[300])
     # print(getReversedIndex()[301])
