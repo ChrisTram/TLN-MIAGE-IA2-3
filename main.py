@@ -189,6 +189,8 @@ def getReversedIndex():
 
 
 def booleanRequest(request):
+    print('------------')
+    print('Request : ' + request)
     # Process
     words_token = word_tokenize(request)
     lems = []
@@ -258,7 +260,8 @@ def treat_sub_request(request):
     while len(request) > 1:
         for i in range(len(request)):
             if i == 2 and request[i] != 'not':
-                tmp = basic_operation(request[i - 2], request[i], request[i - 1])
+                tmp = basic_operation(
+                    request[i - 2], request[i], request[i - 1])
                 request.insert(i + 1, tmp)
                 request.pop(i)
                 request.pop(i - 1)
@@ -296,11 +299,24 @@ def basic_operation(corpus_1, corpus_2, operator, corp_max=10):
 
 
 if __name__ == "__main__":
+    
     booleanRequest("disease AND severe AND pneumonia")
+    
     booleanRequest("antibody AND plasma AND (cells OR receptors)")
+    
     booleanRequest("antimalarial drugs OR antiviral agents OR immunomodulators")
+    
     booleanRequest("NOT plasma AND risk of infection AND restrictions")
+    
     booleanRequest("(older adults AND antibodies) AND NOT (genomes OR variant)")
+    
+    booleanRequest("antibody treatments")
+    
+    booleanRequest("efficacy and safety of the treatments")
+    
+    booleanRequest("family access to hospitals")
+    
+    booleanRequest("contact tracing results")
 
     # print(getStemWords().index("develop"))
     # print(getReversedIndex()[300])
