@@ -159,7 +159,7 @@ def getIncidenceMatrix():
     for corpus in corpusList:
         matrix.append([])
         for word in dictionnary:
-            if (word in corpus):
+            if word in corpus:
                 matrix[i].append(1)
             else:
                 matrix[i].append(0)
