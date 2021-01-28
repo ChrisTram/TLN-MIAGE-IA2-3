@@ -253,6 +253,7 @@ def treat_request(request):
 
     return list(OrderedDict.fromkeys(request))
 
+
 def treat_sub_request(request):
     while len(request) > 1:
         for i in range(len(request)):
